@@ -6,8 +6,8 @@ import { CreatePersonaComponent } from './create-persona/create-persona.componen
 import { ReadPersonaComponent } from './read-persona/read-persona.component';
 import { UpdatePersonaComponent } from './update-persona/update-persona.component';
 import { DeletePersonaComponent } from './delete-persona/delete-persona.component';
-import { RecursoFooterComponent } from '../recursos/recurso-footer/recurso-footer.component';
 import { RecursosModule } from '../recursos/recursos.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +20,9 @@ import { RecursosModule } from '../recursos/recursos.module';
   imports: [
     CommonModule,
     CrudPersonaRoutingModule,
-    RecursosModule
+    RecursosModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CrudPersonaModule { }

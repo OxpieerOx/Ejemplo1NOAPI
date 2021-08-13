@@ -11,7 +11,6 @@ const routes: Routes = [
   {path:'listar-persona',component:ReadPersonaComponent},
   {path:'editar-persona',component:UpdatePersonaComponent},
   {path:'eliminar-persona',component:DeletePersonaComponent},
-  
 ];
 
 @NgModule({
