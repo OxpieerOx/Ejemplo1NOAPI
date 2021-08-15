@@ -11,8 +11,8 @@ import { Sexo } from 'src/app/models/Sexo';
 })
 export class CreatePersonaComponent implements OnInit{
 
-  persona: Persona = <Persona>{nombre:"",apellido:""}
-
+  persona: Persona = <Persona>{nombre:"",apellido:"",sexo:{}};
+  sexo: Sexo = <Sexo>{idSexo:1,descripcion:"Masculino"};
   personaForm: any;
   
   constructor(private personaService:PersonaService, private formBuilder: FormBuilder ) { 
@@ -20,6 +20,7 @@ export class CreatePersonaComponent implements OnInit{
   }
   ngOnInit(): void {
     this.inicializarPersonaForm();
+    
   }
 
   inicializarPersonaForm(){
@@ -40,17 +41,23 @@ export class CreatePersonaComponent implements OnInit{
 
 
   registrarPersona(){
-    this.persona.nombre = this.nombre.value;
-    this.persona.apellido = this.apellido.value;
-    alert(this.persona);
-    console.log(this.persona);
-    //this.persona.nombre = 
-    // this.personaService.registrarPersona(this.persona).subscribe(
-    //   data=>{
+    if(this.personaForm.invalid){
+      alert("INVALIDO");
+    }else{
+      this.persona.sexo = this.sexo;
+      this.persona.nombre = this.nombre.value;
+      this.persona.apellido = this.apellido.value;
 
-    //   },
-    //   error=>{
 
-    //   });
+      console.log(this.persona);
+      this.personaService.registrarPersona(this.persona).subscribe(
+        data=>{
+          console.log(data);
+        },
+        error=>{
+          alert("Error");
+        }
+        );
+    }
   }
 }

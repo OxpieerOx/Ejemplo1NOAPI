@@ -4,8 +4,8 @@
   <h1 class="text-center">Registro de persona</h1>
     <form [formGroup]="personaForm">
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Nombre de persona:</label>
-          <input formControlName="nombre" type="text" class="form-control">
+          <label class="form-label">Nombre de persona:</label>
+          <input class="form-control" formControlName="nombre" type="text" >
           <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="my-1" style="color: rgb(197, 68, 68);">
             
               <div *ngIf="nombre.errors.required">
@@ -23,7 +23,7 @@
               <div *ngIf="nombre.errors.minlength">
                 * Se requieren mínimo 8 caracteres.
               </div>
-
+              
           </div>
 
         </div>
@@ -53,8 +53,8 @@
           <button  [disabled]="personaForm.invalid" (click)="registrarPersona()" type="button" class="btn btn-primary">Registrar</button>
         </div>
 
-      </form>
+    </form>
 </div>
 
-<br><br><br>
+
 <app-recurso-footer></app-recurso-footer>

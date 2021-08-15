@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PersonaService {
-  url =  'localhost:8080/api/persona/';
+  url =  'http://localhost:8080/api/persona/';
   constructor(private http:HttpClient) { }
 
   registrarPersona(persona:Persona):Observable<Persona>{
@@ -14,15 +14,18 @@ export class PersonaService {
     return this.http.post<any>(url_enviada,persona);
   }
 
-  listarPersonas(){
-    
+  listarPersonas():Observable<Persona[]>{
+    const url_enviada= this.url+'listar';  
+    return this.http.get<Persona[]>(url_enviada);
   }
 
-  editarPersona(){
-
+  editarPersona(persona:Persona):Observable<Persona>{
+    const url_enviada= this.url+'editar';  
+    return this.http.post<any>(url_enviada,persona);
   }
 
-  eliminar(){
-
+  buscarPersona(idPersona:number):Observable<Persona>{
+    const url_enviada= this.url+'buscar/'+idPersona;  
+    return this.http.get<Persona>(url_enviada);
   }
 }

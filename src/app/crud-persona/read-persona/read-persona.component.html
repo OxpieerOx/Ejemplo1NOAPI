@@ -1,1 +1,31 @@
-<p>read-persona works!</p>
+<app-recurso-navber></app-recurso-navber>
+
+<div class="container-fluid espaciado">
+    <h1 class="text-center">Listar personas</h1>
+
+    <table class="table">
+        <!-- Titulos de la tabla -->
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Sexo</th>
+          </tr>
+        </thead>
+
+        <!-- Cuerpo con elementos de la tabla  -->
+        <tbody>
+
+          <tr *ngFor="let persona of personas">
+            <th scope="row">{{persona.idPersona}}</th>
+            <td>{{persona.nombre}}</td>
+            <td>{{persona.apellido}}</td>
+            <td>{{persona.sexo.descripcion}}</td>
+          </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<app-recurso-footer></app-recurso-footer>

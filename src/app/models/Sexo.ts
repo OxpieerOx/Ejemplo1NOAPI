@@ -1,10 +1,9 @@
 export class Sexo{
-    id:number;
+    idSexo:number;
     descripcion:string;
 
-  constructor(id: number, descripcion: string) {
-    this.id = id
+  constructor(idSexo: number, descripcion: string) {
+    this.idSexo = idSexo
     this.descripcion = descripcion
   }
-    
 }

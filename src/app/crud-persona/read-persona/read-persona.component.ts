@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Persona } from 'src/app/models/Persona';
+import { PersonaService } from 'src/app/services/persona.service';
 
 @Component({
   selector: 'app-read-persona',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReadPersonaComponent implements OnInit {
 
-  constructor() { }
+  personas:Persona[] = [];
+
+  constructor(private personaService:PersonaService) { }
 
   ngOnInit(): void {
+    this.listarPersonas();
+    console.log(this.personas);
   }
+
+
+  listarPersonas(){
+    this.personaService.listarPersonas().subscribe(
+      data=>{
+        this.personas = data;
+      },
+      error=>{
+        alert("Hubo un error al obtener");
+      });
+  }
+
 
 }
